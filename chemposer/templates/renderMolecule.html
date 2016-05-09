@@ -2,15 +2,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<br><br><br><br>
+<br>
 
       <form enctype ="multipart/form-data" method="post" action="{% url 'upload_xyz' %}">
         <h2 align="center">Upload SDF</h2>
         <br>
-         <input class="form-control" id="xyz" name="xyzfile" type="file">
-        <br>
-        <button class="btn btn-success col-lg-offset-4 col-md-4" type="submit">Confirm</button>
+         <div class="row">
+
+         	<input class="btn btn-success col-lg-3 col-xs-offset-2" id="xyz" name="xyzfile" type="file">	
+        	<button class="btn btn-success col-lg-3 col-xs-offset-2" type="submit">Confirm</button>
+         </div>
          {% csrf_token %}
       </form>
+
+<br>
+<br>
+
+ <script src="http://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script> 
+ 	<div class="row">
+ 		<div class="col-md-8 col-md-offset-2">
+         <div style="height: 70vh; width: 70vw; position: relative;" class='viewer_3Dmoljs' data-href='{{name}}'data-backgroundcolor='0xffffff' data-style='stick'></div>
+    	</div>
+    </div>
+         <br>
 
 {% endblock %}

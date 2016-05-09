@@ -19,13 +19,10 @@ def upload_xyz(request, uid=None):
 
     context = {}
     if request.method == 'GET':
-  		print "Get request to upload_xyz"
-  		return render(request, 'renderMolecule.html', context)
-    print " Nothing done "
-   # print request.POST['sdffile']
+        print "Get request to upload_xyz"
+        #context['name'] = '/static/xyz/tmp/C20.sdf'
+        return render(request, 'renderMolecule.html', context)
     print request.FILES
-
-
 
     filename = request.FILES['xyzfile'].name
     data = request.FILES['xyzfile']
@@ -35,7 +32,9 @@ def upload_xyz(request, uid=None):
     ex = './chemposer/chemposer'
     fname = './chemposer/static/xyz/tmp/'+filename
     call([ex,fname])
+    arr = filename.split('.')
 
+    context['name'] = '/static/xyz/tmp/'+ arr[0] + '.sdf' 
     return render(request, 'renderMolecule.html', context)
 
 
