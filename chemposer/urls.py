@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from chemposer import views
 
 urlpatterns = [
-	url(r'^$', 'chemposer.views.home'),
-    url(r'^home$', 'chemposer.views.home', name='home'),
-    url(r'^upload_xyz$', 'chemposer.views.upload_xyz', name='upload_xyz'),
-
+	url(r'^$', views.home),
+    url(r'^home$', views.home, name='home'),
+    url(r'^upload_xyz$', views.upload_xyz, name='upload_xyz'),
 ]
