@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<br><br><br><br>
+
+      <form enctype ="multipart/form-data" method="post" action="{% url 'upload_xyz' %}">
+        <h2 align="center">Upload SDF</h2>
+        <br>
+         <input class="form-control" id="xyz" name="xyzfile" type="file">
+        <br>
+        <button class="btn btn-success col-lg-offset-4 col-md-4" type="submit">Confirm</button>
+         {% csrf_token %}
+      </form>
+
+{% endblock %}

@@ -9,6 +9,10 @@ body {
   font-size: 20px;
   color: #404040;
 }
+.centered
+{
+    text-align:center;
+}
 p {
   line-height: 1.5;
   margin: 30px 0;

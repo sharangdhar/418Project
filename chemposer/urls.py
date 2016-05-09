@@ -20,5 +20,6 @@ from django.contrib import admin
 urlpatterns = [
 	url(r'^$', 'chemposer.views.home'),
     url(r'^home$', 'chemposer.views.home', name='home'),
+    url(r'^upload_xyz$', 'chemposer.views.upload_xyz', name='upload_xyz'),
 
 ]
