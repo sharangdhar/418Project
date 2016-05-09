@@ -7,6 +7,8 @@ import os
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.conf import settings
+from subprocess import call
+
 
 def home(request):
 	context = {}
@@ -24,13 +26,15 @@ def upload_xyz(request, uid=None):
     print request.FILES
 
 
- 
+
     filename = request.FILES['xyzfile'].name
     data = request.FILES['xyzfile']
     path = default_storage.save('tmp/'+filename, ContentFile(data.read()))
     tmp_file = os.path.join(settings.MEDIA_ROOT, path)
 
-    print tmp_file
+    ex = './chemposer/chemposer'
+    fname = './chemposer/static/xyz/tmp/'+filename
+    call([ex,fname])
 
     return render(request, 'renderMolecule.html', context)
 
